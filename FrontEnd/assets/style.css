@@ -133,7 +133,29 @@ li:hover {
 #portfolio h2 {
 	text-align: center;
 	margin-bottom: 1em;
+	margin-bottom: 60px;
 }
+
+/* Filtres */
+
+.filtres {
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+	gap: 10px;
+	margin-bottom: 60px;
+}
+
+.filtres .btn-categories {
+	height: 37px;
+	border: 1px solid #1D6154;
+	background: #FFFEF8;
+	border-radius: 60px;
+	color: #1D6154;;
+	font-family: 'syne';
+	font-size: 16px;
+}
+
 .gallery {
 	width: 100%;
 	display: grid;
@@ -210,15 +232,18 @@ h2 {
 .formulaire form {
 	display: flex;
 	flex-direction: column;
-	text-align: center;
 	align-items: center;
-	gap:37px;
+}
+
+.formulaire label {
+	margin-bottom: 6px;
 }
 
 .formulaire form input {
 	width: 33%;
 	height: 51px;
-	box-shadow: rgba(0, 0, 0, 0.09);
+	box-shadow: 0px 4px 14px 0px rgba(0, 0, 0, 0.09);
+	margin-bottom: 30px;
 }
 
 .formulaire button {
@@ -228,8 +253,8 @@ h2 {
 	border-radius: 60px;
 	color: white;
 	font-family: 'syne';
-	margin-top: 37px;
-	margin-bottom: 37px;
+	margin-top: 7px;
+	margin-bottom: 28px;
 }
 
 .formulaire .connect {
@@ -241,4 +266,5 @@ h2 {
 	display: flex;
 	justify-content: center;
 	color: black;
+	margin-bottom: 355px;
 }
