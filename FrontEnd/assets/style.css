@@ -139,6 +139,83 @@ li:hover {
 	margin-bottom: 60px;
 }
 
+/*popup*/
+
+.popup {
+	position: fixed;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	width: 630px;
+	height: 655px;
+	border-radius: 10px;
+	background-color: #FFFFFF;
+	display: flex;
+	justify-content: center;
+}
+
+.popup .echap {
+	font-size: 24px;
+	position: absolute;
+	top: 26px;
+	right: 30px;
+}
+
+.popup h3 {
+	display: flex;
+	justify-content: center;
+	font-size: 26px;
+	margin-top: 60px;
+	margin-bottom: 46px;
+}
+
+.popup .popup_img {
+	display: grid;
+	grid-template-columns: repeat(5,3fr);
+	gap: 7px;
+	margin-bottom: 68px;
+}
+
+.popup .popup_img img {
+	width: 78px;
+	height: 104px;
+}
+
+.popup .img2 {
+	position: relative;
+}
+
+.popup .trash {
+	position: absolute;
+	top: 10px;
+	right: 10px;
+	color: white;
+	padding: 4px;
+	background: black;
+	border-radius: 2px;
+}
+
+.popup hr { 
+	margin: 0;
+}
+
+.popup .btn_add_photo {
+	display: flex;
+	justify-content: center;
+	margin-top: 38px;
+	margin-bottom: 54px;
+}
+
+.popup button {
+	padding: 9px 50px;
+	border: 1px solid #1D6154;
+	background: #1D6154;
+	border-radius: 60px;
+	color: #FFFEF8;
+	font-family: 'syne';
+	font-size: 14px;
+}
+
 /* Filtres */
 
 .filtres {
@@ -154,7 +231,7 @@ li:hover {
 	border: 1px solid #1D6154;
 	background: #FFFEF8;
 	border-radius: 60px;
-	color: #1D6154;;
+	color: #1D6154;
 	font-family: 'syne';
 	font-size: 16px;
 }
