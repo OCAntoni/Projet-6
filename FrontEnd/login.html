@@ -28,8 +28,10 @@
         <form method="post" action="#">
             <label for="mail">E-mail</label>
             <input type="text" name="email" id="mail">
+			<div class="mail-error"></div>
             <label for="mdp">Mot de passe</label>
-            <input type="text" name="mdp">
+            <input type="text" name="mdp" id="mot-de-passe">
+			<div class="mdp-error"></div>
         </form>
         <div class="connect">
             <button>Se connecter</button>
@@ -45,5 +47,7 @@
 		</ul>
 	</nav>
 </footer>
+<script src="./assets/javascript/app.js"></script>
+<script src="./assets/javascript/log.js"></script>
 </body>
 </html>
