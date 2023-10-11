@@ -9,6 +9,16 @@ console.log(connexion);
 console.log(errorMdp);
 console.log(errorEmail);
 
+function verifierMail (id) {
+    if (id.email.match([a-zA-z0-9._-]+@[a-z]+\.[a-z]+)){
+    return;
+    console.log("Test OK");
+
+    } else {
+        console.log("Conditions non remplies");
+    };
+};
+
 connexion.addEventListener("click",() => {
     if (email.value.length <= 1) {
         const p = document.createElement("p");
