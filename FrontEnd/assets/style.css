@@ -236,6 +236,18 @@ li:hover {
 	font-size: 16px;
 }
 
+/*modifier*/
+.modifier {
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+	gap: 11px;
+}
+
+.modifier .pen {
+	font-size: 15px;
+}
+
 /*classe active à utiliser sur le javascript plus tard !*/
 .filtres .btn-categories.active {
 	background-color: #1D6154;
