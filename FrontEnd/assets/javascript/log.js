@@ -9,28 +9,23 @@ console.log(connexion);
 console.log(errorMdp);
 console.log(errorEmail);
 
-function verifierMail (id) {
-    if (id.email.match([a-zA-z0-9._-]+@[a-z]+\.[a-z]+)){
-    return;
+function verifierMail (email) {
+    if (email.match(/[a-zA-z0-9._-]+@[a-z]+\.[a-z]+/)) {
     console.log("Test OK");
+    return true;
 
     } else {
         console.log("Conditions non remplies");
+        return false;
     };
 };
 
 connexion.addEventListener("click",() => {
-    if (email.value.length <= 1) {
-        const p = document.createElement("p");
-        p.innerHTML = "Veuillez saisir votre e-mail";
-        errorEmail.appendChild(p);
-        console.log(p);
-    };
-
-    if(mdp.value.length <= 1) {
-        const p = document.createElement("p");
-        p.innerHTML ="Veuillez saisisr votre mot de passe";
-        errorMdp.appendChild(p);
-        console.log(p);
+    if (!verifierMail(email.value)) {
+        const errorMail = document.querySelector(".mail-error")
+        errorEmail.innerHTML = "Veuillez saisir votre e-mail";
+        console.log(errorMail);
     }
+
+    else()
 });
