@@ -72,16 +72,29 @@
 			</div>
 		</div>
 		<div class="popup-ajout">
-			<i class="fa-solid fa-arrow-left retour"></i>
-			<i class="fa-solid fa-xmark echap-ajout"></i>
-			<h3>Ajout photo</h3>
-			<img src="./assets/icons/picture-svgrepo-com 1.svg">
-			<div class="boutton-ajout">
-				<button>Ajouter photo</button>
-			</div>
-			<p>jpg, png : 4mo max</p>
-			<div class="description-ajout">
-
+			<div>
+				<i class="fa-solid fa-arrow-left retour"></i>
+				<i class="fa-solid fa-xmark echap-ajout"></i>
+				<h3>Ajout photo</h3>
+				<div class="photo-ajout">
+					<img src="./assets/icons/picture-svgrepo-com 1.svg">
+					<button>Ajouter photo</button>
+					<p>jpg, png : 4mo max</p>
+				</div>
+				<div class="description-ajout">
+					<form>
+						<label for="titre">Titre</label>
+						<input type="text" name="titre" id="titre">
+						<label for="categorie">Catégorie</label>
+						<select name="categorie" id="categorie">
+							<option value="objets">Objets</option>
+							<option value="appartements">Appartements</option>
+							<option value="hotel-restaurants">Hotels & restaurants</option>
+						</select>
+					</form>
+					<hr>
+						<button class="btn-ajout">Valider</button>
+				</div>
 			</div>
 		</div>
 		<!--Fin popup-->
