@@ -1,6 +1,7 @@
-async function genererProjets (projets) {
+async function genererProjets () {
 const reponse = await fetch("http://localhost:5678/api/works");
 const projet = await reponse.json();
+console.log(reponse);
 console.log(projet);
     
     for (let i = 0; i < projet.lenght;i ++){
@@ -9,8 +10,10 @@ console.log(projet);
         const imageProjet = document.createElement("img");
         const nomProjet = document.createElement("figcaption");
 
-        gallery.appendChild(projet);
-        gallery.appendChild(imageProjet);
-        gallery.appendChild(nomProjet);
+        projets.appendChild(projets)
+        projets.appendChild(projet);
+        projets.appendChild(imageProjet);
+        projets.appendChild(nomProjet);
     };
+    genererProjets(projet);
 };

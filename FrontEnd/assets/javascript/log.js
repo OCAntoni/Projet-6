@@ -27,5 +27,11 @@ connexion.addEventListener("click",() => {
         console.log(errorMail);
     }
 
-    else()
+    else {
+        fetch("http://localhost:5678/api/users/login", {
+        method: "POST",
+        headers: {"content-type": "application/json"},
+        body: JSON.stringify()
+        }
+    )};
 });
