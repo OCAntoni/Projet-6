@@ -30,7 +30,7 @@ connexion.addEventListener("click",() => {
     else {
         fetch("http://localhost:5678/api/users/login", {
         method: "POST",
-        headers: {"content-type": "application/json"},
+        headers: {"content-type": "application/json; charset=UTF-8"},
         body: JSON.stringify()
         }
     )};

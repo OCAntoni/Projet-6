@@ -219,7 +219,6 @@ li:hover {
 /*popoup ajout*/
 
 .popup-ajout {
-	display: flex;
 	position: fixed;
 	top: 50%;
 	left: 50%;
@@ -228,15 +227,6 @@ li:hover {
 	height: 655px;
 	border-radius: 10px;
 	background-color: #FFFFFF;
-	justify-content: center;
-}
-
-.popup-ajout .plus {
-	margin-right: 6px;
-}
-
-.popup-ajout form label {
-	color: #306685;
 }
 
 .popup-ajout .retour {
@@ -253,9 +243,23 @@ li:hover {
 	right: 30px;
 }
 
-.popup-ajout h3 {
+.popup-ajout .test {
 	display: flex;
-	justify-content: center;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.popup-ajout .plus {
+	margin-right: 6px;
+}
+
+
+.popup-ajout form label {
+	color: #306685;
+}
+
+.popup-ajout h3 {
 	font-size: 26px;
 	margin-top: 60px;
 	margin-bottom: 36px;
@@ -295,9 +299,12 @@ li:hover {
 	margin-bottom: 47px;
 }
 
+.popup-ajout form input {
+	box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.09);
+}
+
 .popup-ajout .btn-ajout {
 	border: none;
-	justify-content: center;
 	margin-top: 32px;
 	width: 237px;
 	height: 36px;

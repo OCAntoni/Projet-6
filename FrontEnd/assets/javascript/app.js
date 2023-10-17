@@ -1,19 +1,19 @@
 async function genererProjets () {
-const reponse = await fetch("http://localhost:5678/api/works");
-const projet = await reponse.json();
-console.log(reponse);
+const projet = await fetch("http://localhost:5678/api/works").then(projet => projet.json());
 console.log(projet);
     
-    for (let i = 0; i < projet.lenght;i ++){
-        const gallery = document.querySelector(".gallery");
+    for (let i = 0; i < projet.lenght; i ++){
+        const gallery = document.querySelector(".gallery").innerHTML = "";
         const projets = projet[i];
+        const test = document.createElement("figure");
         const imageProjet = document.createElement("img");
-        const nomProjet = document.createElement("figcaption");
+        const nomProjet = document.createElement("figcaption").innerHTML = "";
 
-        projets.appendChild(projets)
-        projets.appendChild(projet);
-        projets.appendChild(imageProjet);
-        projets.appendChild(nomProjet);
+        gallery.appendChild(test);
+        test.appendChild(projets);
+        test.appendChild(imageProjet);
+        test.appendChild(nomProjet);
     };
-    genererProjets(projet);
 };
+
+genererProjets();
