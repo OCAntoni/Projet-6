@@ -1,19 +1,40 @@
+//Fonction pour afficher les projets depuis l'API
 async function genererProjets () {
-const projet = await fetch("http://localhost:5678/api/works").then(projet => projet.json());
-console.log(projet);
+const projets = await fetch("http://localhost:5678/api/works").then(projets => projets.json());
+const gallery = document.querySelector(".gallery");
     
-    for (let i = 0; i < projet.lenght; i ++){
-        const gallery = document.querySelector(".gallery").innerHTML = "";
-        const projets = projet[i];
-        const test = document.createElement("figure");
+    projets.forEach((projet) => {
+        const figure = document.createElement("figure");
         const imageProjet = document.createElement("img");
-        const nomProjet = document.createElement("figcaption").innerHTML = "";
+        const nomProjet = document.createElement("figcaption");
 
-        gallery.appendChild(test);
-        test.appendChild(projets);
-        test.appendChild(imageProjet);
-        test.appendChild(nomProjet);
-    };
+        imageProjet.src = projet.imageUrl
+        nomProjet.innerHTML = projet.title
+
+        figure.appendChild(imageProjet);
+        figure.appendChild(nomProjet);
+        gallery.appendChild(figure);
+    });
 };
-
 genererProjets();
+
+//Fonction pour ajouter l'image de projet sur la modale 1
+async function genererGalerie () {
+    const galerie = await fetch ("http://localhost:5678/api/works").then(galerie => galerie.json());
+    const popupImg = document.querySelector(".popup_img");
+    console.log(popupImg);
+    console.log(galerie);
+
+        galerie.forEach((galerie) => {
+           const div = document.querySelector(".img2")
+           const imagePopup = document.createElement("img");
+           const trash = document.createElement("i");
+
+           imagePopup.src = galerie.iamageUrl
+
+           div.appendChild(imagePopup);
+           imagePopup.appendChild(trash);
+           popupImg.appendChild(div);
+        });
+};
+genererGalerie();
