@@ -9,6 +9,7 @@ console.log(connexion);
 console.log(errorMdp);
 console.log(errorEmail);
 
+//Fonction pour définir conditions d'accés 
 function verifierMail (email) {
     if (email.match(/[a-zA-z0-9._-]+@[a-z]+\.[a-z]+/)) {
     console.log("Test OK");
@@ -29,9 +30,17 @@ connexion.addEventListener("click",() => {
 
     else {
         fetch("http://localhost:5678/api/users/login", {
-        method: "POST",
-        headers: {"content-type": "application/json; charset=UTF-8"},
-        body: JSON.stringify()
-        }
-    )};
+            method: "POST",
+            headers: {"content-type": "application/json; charset=UTF-8"},
+            body: JSON.stringify({
+                email: email.value,
+                password: mdp.value
+            })
+        }) .then(res => res.json())
+            .then(data => {
+                console.log(data)
+                localStorage.setItem('token', data.token)
+                window.location.href = "/frontend/admin.html"
+            })
+    };
 });
