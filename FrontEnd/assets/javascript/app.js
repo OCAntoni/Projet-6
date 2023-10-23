@@ -31,6 +31,7 @@ async function genererGalerie () {
 
            imagePopup.src = galerie.imageUrl
            trash.classList.add("trash")
+           console.log(trash);
 
            popupImg.appendChild(imagePopup);
            popupImg.appendChild(trash);
@@ -38,7 +39,7 @@ async function genererGalerie () {
 };
 genererGalerie();
 
-//Filtres les images par catégories 
+//Filtres les images par catégories admin deconneceter
 const btnFiltres1 = document.querySelector(".btnFiltres1")
 const btnFiltres2 = document.querySelector(".btnFiltres2")
 const btnFiltres3 = document.querySelector(".btnFiltres3")
@@ -60,3 +61,7 @@ btnFiltres3.addEventListener("click",() => {
 btnFiltres3.addEventListener("click",() => {
     genererProjets(id === 3);
 });
+
+//Ajout et supression photo popup
+const btnAjout = document.querySelector(".btn_add_photo");
+console.log(btnAjout);
