@@ -18,6 +18,9 @@ const gallery = document.querySelector(".gallery");
 };
 genererProjets();
 
+//Ouverture et fermeture des 2x popup 
+
+
 //Fonction pour ajouter l'image de projet sur la modale 1
 async function genererGalerie () {
     const galerie = await fetch ("http://localhost:5678/api/works").then(galerie => galerie.json());
@@ -68,5 +71,5 @@ const suppr = document// a suivre
 console.log(btnAjout);
 
 btnAjout.addEventListener("click",() => {
-
+    // a suivre
 })
