@@ -30,11 +30,11 @@ async function genererGalerie () {
            const trash = document.createElement("i");
 
            imagePopup.src = galerie.imageUrl
-           trash.classList.add("trash")
+           trash.classList.add("fa-solid", "fa-trash-can","trash")
            console.log(trash);
 
            popupImg.appendChild(imagePopup);
-           popupImg.appendChild(trash);
+           imagePopup.appendChild(trash);
         });
 };
 genererGalerie();
@@ -64,4 +64,9 @@ btnFiltres3.addEventListener("click",() => {
 
 //Ajout et supression photo popup
 const btnAjout = document.querySelector(".btn_add_photo");
+const suppr = document// a suivre
 console.log(btnAjout);
+
+btnAjout.addEventListener("click",() => {
+
+})
