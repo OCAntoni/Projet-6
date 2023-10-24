@@ -15,7 +15,7 @@
 </head>
 <body>
 		<!--Popup affichage en javascript à suivre-->
-		<div class="popup">
+		<div class="popup" id="popup">
 			<div class="popup_content">
 				<i class="fa-solid fa-xmark echap"></i>
 				<h3>Galerie photo</h3>
@@ -27,7 +27,7 @@
 				</div>
 			</div>
 		</div>
-		<div class="popup-ajout">
+		<div class="popup-ajout" id="popup-ajout">
 			<i class="fa-solid fa-arrow-left retour"></i>
 			<i class="fa-solid fa-xmark echap-ajout"></i>
 			<form class="popup-form">
@@ -58,6 +58,12 @@
 			</form>
 		</div>
 		<!--Fin popup-->
+<div class="admin-mode">
+	<div class="admin-edit">
+		<i class="fa-regular fa-pen-to-square"></i>
+		<a href="#popup-ajout">Mode édition</a>
+	</div>
+</div>
 <header>
 	<h1>Sophie Bluel <span>Architecte d'inteérieur</span></h1>
 	<nav>
@@ -85,7 +91,7 @@
 		<h2>Mes Projets</h2>
 		<div class="modifier">
 			<i class="fa-regular fa-pen-to-square pen"></i>
-			<p>modifier</p>
+			<a href="#popup">modifier</a>
 			</div>
 		<div class="gallery">
 		</div>
