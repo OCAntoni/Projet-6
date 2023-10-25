@@ -43,26 +43,30 @@ async function genererGalerie () {
 genererGalerie();
 
 //Filtres les images par catégories admin deconneceter
-const btnFiltres1 = document.querySelector(".btnFiltres1")
-const btnFiltres2 = document.querySelector(".btnFiltres2")
-const btnFiltres3 = document.querySelector(".btnFiltres3")
-const btnFiltres4 = document.querySelector(".btnFiltres4")
-let id = 
+const btnFiltres1 = document.querySelector(".btnFiltres1");
+const btnFiltres2 = document.querySelector(".btnFiltres2");
+const btnFiltres3 = document.querySelector(".btnFiltres3");
+const btnFiltres4 = document.querySelector(".btnFiltres4");
+const categoryId = element.getAttribute("categoryId");
 
 btnFiltres1.addEventListener("click",() => {
+    btnFiltres1.classList.add(".active")
     genererProjets();
 });
 
 btnFiltres2.addEventListener("click",() => {
-    genererProjets(id === 1);
+    btnFiltres2.classList.add(".active")
+    genererProjets(categoryId === 1)
 });
 
 btnFiltres3.addEventListener("click",() => {
-    genererProjets(id === 2);
+    btnFiltres3.classList.add(".active")
+    genererProjets(categoryId === 2);
 });
 
 btnFiltres3.addEventListener("click",() => {
-    genererProjets(id === 3);
+    btnFiltres4.classList.add(".active")
+    genererProjets(categoryId === 3);
 });
 
 //Ajout et supression photo popup
@@ -72,4 +76,4 @@ console.log(btnAjout);
 
 btnAjout.addEventListener("click",() => {
     // a suivre
-})
+});
