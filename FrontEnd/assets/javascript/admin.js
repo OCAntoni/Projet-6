@@ -45,7 +45,7 @@ close2.addEventListener("click", () => {
     popup2.classList.add("hidden");
 });
 
-//Fonction pour ajouter l'image de projet sur la modale 1
+//Fonction pour générer les images depuis l'api sur la popup2
 async function genererGalerie () {
     const galerie = await fetch ("http://localhost:5678/api/works").then(galerie => galerie.json());
     const popupImg = document.querySelector(".popup_img");
@@ -67,10 +67,11 @@ async function genererGalerie () {
 };
 genererGalerie();
 
-//Ajout et supression photo popup
+//Ajout et supression photo popup2
 const btnAjout = document.querySelector(".btn_add_photo");
-const suppr = document// a suivre
+const suppr = trash
 console.log(btnAjout);
+console.log(suppr);
 
 btnAjout.addEventListener("click",() => {
     // a suivre
