@@ -14,29 +14,17 @@
 	<link rel="stylesheet" href="./assets/style.css">
 </head>
 <body>
-		<!--Popup affichage en javascript à suivre-->
-		<div class="popup" id="popup">
-			<div class="popup_content">
-				<i class="fa-solid fa-xmark echap"></i>
-				<h3>Galerie photo</h3>
-				<div class="popup_img">
-				</div>
-				<hr>
-				<div class="add_photo">
-					<button class="btn_add_photo">Ajouter une photo</button>
-				</div>
-			</div>
-		</div>
-		<div class="popup-ajout" id="popup-ajout">
+		<!--Popup1 ajout-->
+		<div class="popup-ajout hidden" id="popup-ajout">
 			<i class="fa-solid fa-arrow-left retour"></i>
 			<i class="fa-solid fa-xmark echap-ajout"></i>
 			<form class="popup-form">
 				<h3>Ajout photo</h3>
-				<label class="photo-ajout">
+				<label for="ajouter" class="photo-ajout">
 					<img src="./assets/icons/picture-svgrepo-com 1.svg">
-						<button class ="button">
-							<label for="ajouter"><i class="fa-solid fa-plus plus"></i>Ajouter une photo</label>
-						</button>
+						<div class ="button">
+							<i class="fa-solid fa-plus plus"></i>Ajouter une photo
+						</div>
 						<input type="file" name="ajouter" id="ajouter">
 					<p>jpg, png : 4mo max</p>
 				</label>
@@ -57,14 +45,28 @@
 				</div>
 			</form>
 		</div>
+
+		<!--Popup2 modifier-->
+		<div class="popup hidden" id="popup">
+			<i class="fa-solid fa-xmark echap"></i>
+			<div class="popup_content">
+				<h3>Galerie photo</h3>
+				<div class="popup_img">
+				</div>
+				<hr>
+				<div class="add_photo">
+					<button class="btn_add_photo">Ajouter une photo</button>
+				</div>
+			</div>
+		</div>
 		<!--Fin popup-->
 <div class="admin-mode">
 	<div class="admin-edit">
 		<i class="fa-regular fa-pen-to-square"></i>
-		<a href="#popup-ajout">Mode édition</a>
+		<a id="popup-ajout-open" href="#popup-ajout">Mode édition</a>
 	</div>
 </div>
-<header>
+<header class="header-admin">
 	<h1>Sophie Bluel <span>Architecte d'inteérieur</span></h1>
 	<nav>
 		<ul>
@@ -91,7 +93,7 @@
 		<h2>Mes Projets</h2>
 		<div class="modifier">
 			<i class="fa-regular fa-pen-to-square pen"></i>
-			<a href="#popup">modifier</a>
+			<a id="popup-open" href="#popup">modifier</a>
 			</div>
 		<div class="gallery">
 		</div>
@@ -118,6 +120,6 @@
 		</ul>
 	</nav>
 </footer>
-<script src="./assets/javascript/app.js"></script>
+<script src="./assets/javascript/admin.js"></script>
 </body>
 </html>
