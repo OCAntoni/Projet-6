@@ -1,3 +1,4 @@
+//Fonction pour afficher les projets depuis l'API
 async function genererProjets () {
     const projets = await fetch("http://localhost:5678/api/works").then(projets => projets.json());
     const gallery = document.querySelector(".gallery");
@@ -45,6 +46,14 @@ close2.addEventListener("click", () => {
     popup2.classList.add("hidden");
 });
 
+//Fonction pour supprimer les images de la popup2
+async function supprImg () {
+    await fetch ("http://localhost:5678/api/works"), {
+        method: "DELETE",
+        headers: { Authorization:"token"},
+    }
+    // A SUIVRE !!
+};
 //Fonction pour générer les images depuis l'api sur la popup2
 async function genererGalerie () {
     const galerie = await fetch ("http://localhost:5678/api/works").then(galerie => galerie.json());
@@ -54,25 +63,32 @@ async function genererGalerie () {
 
         galerie.forEach((galerie) => {
             const div = document.createElement("div");
-           const imagePopup = document.createElement("img");
-           const trash = document.createElement("i");
+            const imagePopup = document.createElement("img");
+            const trash = document.createElement("i");
 
-           imagePopup.src = galerie.imageUrl
-           trash.classList.add("fa-solid", "fa-trash-can","trash")
+            imagePopup.src = galerie.imageUrl;
+            trash.classList.add("fa-solid", "fa-trash-can","trash");
+
+            //Suppresion photo avec la poubelle
+            trash.addEventListener("click",()=>{
+            console.log("test ok !");
+            });
 
            div.appendChild(imagePopup);
-           div.appendChild(trash)
+           div.appendChild(trash);
            popupImg.appendChild(div);
         });
 };
 genererGalerie();
 
-//Ajout et supression photo popup2
+//Fonction ajout photo popup2
+// A SUIVRE !!
+
+
+//Ajout photo popup2
 const btnAjout = document.querySelector(".btn_add_photo");
-const suppr = trash
 console.log(btnAjout);
-console.log(suppr);
 
 btnAjout.addEventListener("click",() => {
-    // a suivre
+    console.log("test ok !");
 });
