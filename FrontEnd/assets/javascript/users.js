@@ -42,7 +42,7 @@ btnFiltres3.addEventListener("click",() => {
     genererProjets(categoryId === 2);
 });
 
-btnFiltres3.addEventListener("click",() => {
+btnFiltres4.addEventListener("click",() => {
     btnFiltres4.classList.add("active")
     btnFiltres4.element.getAttribute("categoryId");
     genererProjets(categoryId === 3);
