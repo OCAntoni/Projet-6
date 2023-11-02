@@ -47,13 +47,14 @@ close2.addEventListener("click", () => {
 });
 
 //Fonction pour supprimer les images de la popup2
-async function supprImg () {
-    await fetch ("http://localhost:5678/api/works"), {
+function supprImg () {
+    fetch ("http://localhost:5678/api/works", {
         method: "DELETE",
         headers: { Authorization:"token"},
-    }
-    // A SUIVRE !!
+    }) .then (res => res.json)
+        .then (res => console.log(res));
 };
+
 //Fonction pour générer les images depuis l'api sur la popup2
 async function genererGalerie () {
     const galerie = await fetch ("http://localhost:5678/api/works").then(galerie => galerie.json());
@@ -71,6 +72,7 @@ async function genererGalerie () {
 
             //Suppresion photo avec la poubelle
             trash.addEventListener("click",()=>{
+                supprImg()
             console.log("test ok !");
             });
 
