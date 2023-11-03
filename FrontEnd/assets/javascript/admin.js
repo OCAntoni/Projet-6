@@ -2,6 +2,8 @@
 async function genererProjets () {
     const projets = await fetch("http://localhost:5678/api/works").then(projets => projets.json());
     const gallery = document.querySelector(".gallery");
+
+    gallery.innerHTML = ''
         
         projets.forEach((projet) => {
             const figure = document.createElement("figure");
@@ -47,32 +49,38 @@ close2.addEventListener("click", () => {
 });
 
 //Fonction pour supprimer les images de la popup2
-function supprImg () {
-    fetch ("http://localhost:5678/api/works", {
+function supprImg (id) {
+    fetch ("http://localhost:5678/api/works/" + id, {
         method: "DELETE",
-        headers: { Authorization:"token"},
+        headers: { Authorization: "Bearer " + localStorage.getItem("token")},
     }) .then (res => res.json)
-        .then (res => console.log(res));
+        .then ((res) => {
+            genererGalerie()
+            genererProjets()
+        });
 };
 
 //Fonction pour générer les images depuis l'api sur la popup2
 async function genererGalerie () {
     const galerie = await fetch ("http://localhost:5678/api/works").then(galerie => galerie.json());
     const popupImg = document.querySelector(".popup_img");
-    
+
+    popupImg.innerHTML = ''
     console.log(galerie);
 
         galerie.forEach((galerie) => {
             const div = document.createElement("div");
             const imagePopup = document.createElement("img");
             const trash = document.createElement("i");
+            trash.setAttribute("data-id", galerie.id)
 
             imagePopup.src = galerie.imageUrl;
             trash.classList.add("fa-solid", "fa-trash-can","trash");
 
             //Suppresion photo avec la poubelle
-            trash.addEventListener("click",()=>{
-                supprImg()
+            trash.addEventListener("click",(event) => {
+                let id = event.target.getAttribute("data-id")
+                supprImg(id)
             console.log("test ok !");
             });
 
