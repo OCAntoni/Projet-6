@@ -27,12 +27,20 @@ const lien2 = document.getElementById("popup-open");
 const popup1 = document.querySelector(".popup-ajout");
 const popup2 = document.querySelector(".popup");
 
+const redirectionAjout = document.querySelector(".btn_add_photo")
+const redirectionPrecedent = document.querySelector(".retour")
+
 const close1 = document.querySelector(".echap-ajout");
 const close2 = document.querySelector(".echap");
 
 //Pour la popup1 popup ajout
 lien.addEventListener("click",() => {
     popup1.classList.remove("hidden");
+    });
+
+    redirectionPrecedent.addEventListener("click",() => {
+        popup2.classList.remove("hidden");
+        popup1.classList.add("hidden");
     });
 
 close1.addEventListener("click",() => {
@@ -42,6 +50,11 @@ close1.addEventListener("click",() => {
 //Pour la popup2 popup mofication
 lien2.addEventListener("click", () => {
     popup2.classList.remove("hidden");
+});
+
+redirectionAjout.addEventListener("click", () => {
+    popup1.classList.remove("hidden");
+    popup2.classList.add("hidden");
 });
 
 close2.addEventListener("click", () => {
@@ -96,8 +109,7 @@ genererGalerie();
 
 
 //Ajout photo popup2
-const btnAjout = document.querySelector(".btn_add_photo");
-console.log(btnAjout);
+const btnAjout = document.querySelector(".btn-ajout");
 
 btnAjout.addEventListener("click",() => {
     console.log("test ok !");
