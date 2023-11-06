@@ -33,7 +33,6 @@ async function genererCategories() {
 
     categories.forEach((category) => {
         let button = `<button class="btn-categories" data-id="${category.id}">${category.name}</button>`
-
         filtres.innerHTML += button;
     });
 };
@@ -43,9 +42,14 @@ genererCategories().then(() => {
     const buttons = document.querySelectorAll(".btn-categories")
     console.log(buttons)
 
-    buttons.forEach(button => {
+    buttons.forEach((button) => {
         button.addEventListener("click", (event) => {
-            button.classList.add("active")
+          buttons.forEach((button) => {
+            //suppression de la classe sur tout les bouttons au click
+            button.classList.remove("active");
+          });
+          //puis ajout de la classe uniquement sur le boutton cliquer
+          button.classList.add("active")
             let categoryId = event.target.getAttribute("data-id")
             genererProjets(categoryId);
         });
