@@ -325,8 +325,8 @@ li:hover {
 }
 
 .popup-ajout .description-ajout input {
-	padding-left: 140px;
-	padding-right: 140px;
+	
+	padding-right: 280px;
 	height: 51px;
 	box-shadow: 0px 2px 9px 6px rgba(0, 0, 0, 0.09);
 	border: none;
