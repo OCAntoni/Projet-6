@@ -104,13 +104,26 @@ async function genererGalerie () {
 };
 genererGalerie();
 
-//Fonction ajout photo popup2
-// A SUIVRE !!
+//Fonction ajout photo popup1
+async function ajouterProjet () {
+    //declarer les elements du newdata (conts img = ......)
+    const formData = new FormData();
+    formData.append("title", title);
+    formData.append("category", categoryId);
+    formData.append("image", image);
+
+    const response = await fetch ("http://localhost:5678/api/works", {
+        method: "POST",
+        headers: { Authorization: "Bearer " + localStorage.getItem("token")},
+        body: FormData,
+    });
+};
 
 
-//Ajout photo popup2
+//Ajout photo popup1
 const btnAjout = document.querySelector(".btn-ajout");
 
 btnAjout.addEventListener("click",() => {
+    ajouterProjet()
     console.log("test ok !");
 });
