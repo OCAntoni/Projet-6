@@ -79,7 +79,6 @@ async function genererGalerie () {
     const popupImg = document.querySelector(".popup_img");
 
     popupImg.innerHTML = ''
-    console.log(galerie);
 
         galerie.forEach((galerie) => {
             const div = document.createElement("div");
@@ -104,26 +103,58 @@ async function genererGalerie () {
 };
 genererGalerie();
 
-//Fonction ajout photo popup1
-async function ajouterProjet () {
-    //declarer les elements du newdata (conts img = ......)
-    const formData = new FormData();
-    formData.append("title", title);
-    formData.append("category", categoryId);
-    formData.append("image", image);
+//fonction pour générer les catégories d'ajoiut de la popup1 via l'API
+async function genererCategories () {
+    const request  = await fetch("http://localhost:5678/api/categories");
+    const data = await request.json();
+    const selectCategories = document.getElementById("categorie")
 
-    const response = await fetch ("http://localhost:5678/api/works", {
-        method: "POST",
-        headers: { Authorization: "Bearer " + localStorage.getItem("token")},
-        body: FormData,
+    data.forEach((category) =>{
+        let option = `<option value="${category.id}">${category.name}</option>`
+
+        selectCategories.innerHTML += option
     });
 };
+genererCategories();
 
+
+//changer l'image de base par l'image choisie lors de l'ajout de projet
+const bouton3 = document.getElementById("ajouter");
+const image = document.getElementById("placeholder")
+
+bouton3.addEventListener("change",(event) => {
+    image.src = URL.createObjectURL(event.target.files[0])
+})
+
+//Fonction ajout photo popup1
+async function ajouterProjet () {
+    const image = document.getElementById("ajouter");
+    const titre = document.getElementById("titre");
+    const categorie = document.getElementById("categorie");
+
+    const formData = new FormData();
+    formData.append("title", titre.value);
+    formData.append("category", categorie.value);
+    formData.append("image", image.files[0]);
+    console.log(titre.value);
+    console.log(image.files[0]);
+    console.log(categorie.value);
+
+    try {
+        const response = await fetch ("http://localhost:5678/api/works", {
+        method: "POST",
+        headers: { Authorization: "Bearer " + localStorage.getItem("token")},
+        body: formData,
+    });
+    } catch(error) {
+        console.log(error);
+    };
+};
 
 //Ajout photo popup1
-const btnAjout = document.querySelector(".btn-ajout");
+const submit = document.getElementById("submit");
 
-btnAjout.addEventListener("click",() => {
-    ajouterProjet()
-    console.log("test ok !");
+submit.addEventListener("submit",(event) => {
+    event.preventDefault();
+    ajouterProjet();
 });
