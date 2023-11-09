@@ -18,25 +18,26 @@
 		<div class="popup-ajout hidden" id="popup-ajout">
 			<i class="fa-solid fa-arrow-left retour"></i>
 			<i class="fa-solid fa-xmark echap-ajout"></i>
-			<form class="popup-form">
+			<form id="submit" class="popup-form">
 				<h3>Ajout photo</h3>
 				<label for="ajouter" class="photo-ajout">
-					<img src="./assets/icons/picture-svgrepo-com 1.svg">
+					<img src="./assets/icons/picture-svgrepo-com 1.svg" id="placeholder">
 						<div class ="button">
 							<i class="fa-solid fa-plus plus"></i>Ajouter une photo
 						</div>
 						<input type="file" name="ajouter" id="ajouter">
-					<p>jpg, png : 4mo max</p>
+					<p class="text">jpg, png : 4mo max</p>
 				</label>
+
+				
+
 				<div class="description-ajout">
 						<label for="titre">Titre</label>
 						<input type="text" name="titre" id="titre">
 						<label for="categorie">Catégorie</label>
 						<select name="categorie" id="categorie">
 							<option>Veuillez selectionner une catégories</option>
-							<option value="objets">Objets</option>
-							<option value="appartements">Appartements</option>
-							<option value="hotel-restaurants">Hotels & restaurants</option>
+							<!--ajout via API pour les catégories-->
 						</select>
 					<hr>
 					<div class="btn">
