@@ -61,6 +61,16 @@ close2.addEventListener("click", () => {
     popup2.classList.add("hidden");
 });
 
+//Fermeture des modales quand on clique ailleurs 
+const body = document.querySelector(".body");
+console.log(body);
+body.click(function (event) 
+{
+   if(!$(event.target).closest('#popup-ajout').length && !$(event.target).is('#popup-ajout')) {
+   popup1.classList.add("hidden")
+   }     
+});
+
 //Fonction pour supprimer les images de la popup2
 function supprImg (id) {
     fetch ("http://localhost:5678/api/works/" + id, {
@@ -121,9 +131,18 @@ genererCategories();
 //changer l'image de base par l'image choisie lors de l'ajout de projet
 const bouton3 = document.getElementById("ajouter");
 const image = document.getElementById("placeholder")
+const here = document.getElementById("here");
+const change = document.getElementById("change");
+console.log(here);
+console.log(change);
 
 bouton3.addEventListener("change",(event) => {
     image.src = URL.createObjectURL(event.target.files[0])
+});
+
+bouton3;addEventListener("click",() => {
+    here.classList.add("hidden")
+    change.classList.remove("hidden")
 })
 
 //Fonction ajout photo popup1
@@ -157,4 +176,14 @@ const submit = document.getElementById("submit");
 submit.addEventListener("submit",(event) => {
     event.preventDefault();
     ajouterProjet();
+});
+
+//Deconnexion du mode admin
+const logout = document.getElementById("logout");
+
+logout.addEventListener("click", () => {
+    if (localStorage.getItem("token")) {
+        localStorage.removeItem("token");
+        window.location.href = "/frontend/login.html";
+    };
 });
