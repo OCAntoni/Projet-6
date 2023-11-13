@@ -13,21 +13,27 @@
 	crossorigin="anonymous" referrerpolicy="no-referrer">
 	<link rel="stylesheet" href="./assets/style.css">
 </head>
-<body>
+<body class="body">
 		<!--Popup1 ajout-->
 		<div class="popup-ajout hidden" id="popup-ajout">
 			<i class="fa-solid fa-arrow-left retour"></i>
 			<i class="fa-solid fa-xmark echap-ajout"></i>
 			<form id="submit" class="popup-form">
 				<h3>Ajout photo</h3>
-				<label for="ajouter" class="photo-ajout">
+				<label id="here" for="ajouter" class="photo-ajout">
 					<img src="./assets/icons/picture-svgrepo-com 1.svg" id="placeholder">
-						<div class ="button">
+						<div id="supr" class ="button">
 							<i class="fa-solid fa-plus plus"></i>Ajouter une photo
 						</div>
 						<input type="file" name="ajouter" id="ajouter">
-					<p class="text">jpg, png : 4mo max</p>
+					<p id="supr2" class="text">jpg, png : 4mo max</p>
 				</label>
+
+				<div class="photo-ajout hidden" id="change">
+					<label for="ajouter" class="photo-ajout">
+						<img src="./assets/icons/picture-svgrepo-com 1.svg" id="placeholder">
+					</label>
+				</div>
 
 				
 
@@ -73,7 +79,7 @@
 		<ul>
 			<li><a href="./index.html">projets</a></li>
 			<li>contact</li>
-			<li><a href="./login.html">logout</a></li>
+			<li><a href="./login.html" id="logout">logout</a></li>
 			<li><img src="./assets/icons/instagram.png" alt="Instagram"></li>
 		</ul>
 	</nav>
