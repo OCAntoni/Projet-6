@@ -568,6 +568,11 @@ h2 {
 	color: red;
 }
 
+.mdp-error {
+	margin-bottom: 20px;
+	color: red;
+}
+
 footer {
 	margin-top: auto;
 }
