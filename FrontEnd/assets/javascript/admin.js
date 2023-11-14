@@ -36,6 +36,7 @@ const close2 = document.querySelector(".echap");
 //Pour la popup1 popup ajout
 lien.addEventListener("click",() => {
     popup1.classList.remove("hidden");
+    popup2.classList.add("hidden");
     });
 
     redirectionPrecedent.addEventListener("click",() => {
@@ -50,6 +51,7 @@ close1.addEventListener("click",() => {
 //Pour la popup2 popup mofication
 lien2.addEventListener("click", () => {
     popup2.classList.remove("hidden");
+    popup1.classList.add("hidden");
 });
 
 redirectionAjout.addEventListener("click", () => {
