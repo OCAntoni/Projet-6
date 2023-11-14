@@ -16,11 +16,24 @@ function verifierMail (email) {
     };
 };
 
+function verifierMdp (mdp) {
+    if (mdp !== mdp.value) {
+        errorMdp.innerHTML = "Votre mot de passe n'est pas valide";
+        return false;
+    } else {
+        return true;
+    };
+};
+
 connexion.addEventListener("click",() => {
     if (!verifierMail(email.value)) {
         const errorMail = document.querySelector(".mail-error")
         errorEmail.innerHTML = "Veuillez saisir votre e-mail";
         console.log(errorMail);
+    }
+
+    if (verifierMdp()) {
+        
     }
 
     else {
