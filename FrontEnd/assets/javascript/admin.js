@@ -105,7 +105,6 @@ async function genererGalerie () {
             trash.addEventListener("click",(event) => {
                 let id = event.target.getAttribute("data-id")
                 supprImg(id)
-            console.log("test ok !");
             });
 
            div.appendChild(imagePopup);
@@ -134,21 +133,40 @@ genererCategories();
 const bouton3 = document.getElementById("ajouter");
 const image = document.getElementById("placeholder")
 const here = document.getElementById("here");
-const change = document.getElementById("change");
-console.log(here);
-console.log(change);
+const supr = document.getElementById("supr")
+const supr2 = document.getElementById("supr2")
+const champ2 = document.getElementById("titre")
+const champ3 = document.getElementById("categorie")
+const btnAjout = document.querySelector(".btn-ajout")
 
 bouton3.addEventListener("change",(event) => {
+    verifierChamps()
     image.src = URL.createObjectURL(event.target.files[0])
+    image.style.width = "130px"
+    image.style.height = "100%";
+    supr.classList.add("hidden");
+    supr2.classList.add("hidden");
 });
 
-bouton3;addEventListener("click",() => {
-    here.classList.add("hidden")
-    change.classList.remove("hidden")
-})
+champ2.addEventListener("change",verifierChamps);
+
+champ3.addEventListener("change",verifierChamps);
+
+// fonction pour verifier si champ remplie
+function verifierChamps () {
+    console.log(bouton3.value);
+    console.log(champ2.value);
+    console.log(champ3.value);
+    if (bouton3.value != "" && champ2.value != "" && champ3 != "") {
+        btnAjout.classList.add("active")
+    }
+}
+verifierChamps()
 
 //Fonction ajout photo popup1
-async function ajouterProjet () {
+async function ajouterProjet (event) {
+    event.preventDefault();
+
     const image = document.getElementById("ajouter");
     const titre = document.getElementById("titre");
     const categorie = document.getElementById("categorie");
@@ -157,9 +175,6 @@ async function ajouterProjet () {
     formData.append("title", titre.value);
     formData.append("category", categorie.value);
     formData.append("image", image.files[0]);
-    console.log(titre.value);
-    console.log(image.files[0]);
-    console.log(categorie.value);
 
     try {
         const response = await fetch ("http://localhost:5678/api/works", {
@@ -167,6 +182,14 @@ async function ajouterProjet () {
         headers: { Authorization: "Bearer " + localStorage.getItem("token")},
         body: formData,
     });
+
+    if(response.status === 201) {
+        alert("Félicitation, votre projet à été correctement ajouter !")
+        return;
+    } else {
+        alert("Veuillez remplir tous les champs !")
+    };
+    
     } catch(error) {
         console.log(error);
     };
@@ -177,7 +200,7 @@ const submit = document.getElementById("submit");
 
 submit.addEventListener("submit",(event) => {
     event.preventDefault();
-    ajouterProjet();
+    ajouterProjet(event);
 });
 
 //Deconnexion du mode admin
