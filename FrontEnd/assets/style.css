@@ -113,6 +113,7 @@ li:hover {
 #introduction {
 	display: flex;
 	align-items: center;
+	margin: 50px 0;
 }
 #introduction figure {
 	flex: 1
@@ -136,7 +137,7 @@ li:hover {
 
 /* Classe pour cacher popup */
 .hidden {
-	display: none;
+	display: none !important;
 }
 
 /*popup*/
@@ -185,6 +186,7 @@ li:hover {
 .popup .popup_img img {
 	width: 100%;
 	height: 104px;
+	object-fit: cover;
 }
 
 .popup .img2 {
@@ -272,15 +274,19 @@ li:hover {
 	margin-bottom: 36px;
 }
 
+.popup-ajout img { object-fit: cover;
+}
+
 .popup-ajout .photo-ajout {
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
 	align-items: center;
 	background-color: #E8F1F6;
-	padding: 13px 124px 19px 124px;
 	margin-bottom: 30px;
 	cursor: pointer;
+	width: 420px;
+	height: 170px;
 }
 
 .popup-ajout .photo-ajout img {
@@ -440,9 +446,9 @@ li:hover {
 }
 
 /*classe active à utiliser sur le javascript !*/
-.filtres .btn-categories.active {
-	background-color: #1D6154;
-	color: white;
+ .active {
+	background-color: #1D6154 !important;
+	color: white !important;
 }
 
 .gallery {
