@@ -21,31 +21,22 @@
 			<form id="submit" class="popup-form">
 				<h3>Ajout photo</h3>
 				<label id="here" for="ajouter" class="photo-ajout">
-					<img src="./assets/icons/picture-svgrepo-com 1.svg" id="placeholder">
+					<img src="./assets/icons/picture-svgrepo-com1.svg" id="placeholder" alt="icone d'image">
 						<div id="supr" class ="button">
 							<i class="fa-solid fa-plus plus"></i>Ajouter une photo
 						</div>
 						<input type="file" name="ajouter" id="ajouter">
 					<p id="supr2" class="text">jpg, png : 4mo max</p>
 				</label>
-
-				<div class="photo-ajout hidden" id="change">
-					<label for="ajouter" class="photo-ajout">
-						<img src="./assets/icons/picture-svgrepo-com 1.svg" id="placeholder">
-					</label>
-				</div>
-
-				
-
 				<div class="description-ajout">
 						<label for="titre">Titre</label>
 						<input type="text" name="titre" id="titre">
 						<label for="categorie">Catégorie</label>
 						<select name="categorie" id="categorie">
-							<option>Veuillez selectionner une catégories</option>
+							<option value="">Veuillez selectionner une catégories</option>
 							<!--ajout via API pour les catégories-->
 						</select>
-					<hr>
+						<hr>
 					<div class="btn">
 						<button class="btn-ajout">Valider</button>
 					</div>
@@ -66,7 +57,7 @@
 				</div>
 			</div>
 		</div>
-		<!--Fin popup-->
+		<!--Fin des popup-->
 <div class="admin-mode">
 	<div class="admin-edit">
 		<i class="fa-regular fa-pen-to-square"></i>
@@ -85,7 +76,7 @@
 	</nav>
 </header>
 <main>
-	<section id="introduction">
+	<div id="introduction">
 		<figure>
 			<img src="./assets/images/sophie-bluel.png" alt="">
 		</figure>
@@ -95,7 +86,7 @@
 			<p>Chaque projet sera étudié en commun, de façon à mettre en valeur les volumes, les matières et les couleurs dans le respect de l’esprit des lieux et le choix adapté des matériaux. Le suivi du chantier sera assuré dans le souci du détail, le respect du planning et du budget.</p>
 			<p>En cas de besoin, une équipe pluridisciplinaire peut-être constituée : architecte DPLG, décorateur(trice)</p>
 		</article>
-	</section>
+	</div>
 	<section id="portfolio">
 		<div class="modifier">
 			<h2>Mes Projets</h2>
@@ -103,6 +94,7 @@
 			<a id="popup-open" href="#popup">modifier</a>
 			</div>
 		<div class="gallery">
+			<!--ajout via API pour les projets-->
 		</div>
 	</section>
 	<section id="contact">
