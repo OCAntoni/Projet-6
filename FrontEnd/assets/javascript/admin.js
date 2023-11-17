@@ -188,7 +188,7 @@ async function ajouterProjet (event) {
 
     if(response.status === 201) {
         popup1.classList.add("hidden");
-        alert("Félicitation, votre projet à été correctement ajouter !");
+        alert("Félicitations, votre projet à été correctement ajouté !");
         genererProjets();
         genererGalerie();
         return;
