@@ -4,7 +4,7 @@ const connexion = document.querySelector(".connect button");
 const errorEmail = document.querySelector(".mail-error");
 const errorMdp =document.querySelector(".mdp-error");
 
-//Fonction pour définir conditions d'accés 
+//Fonction pour définir "syntaxe" email correct 
 function verifierMail (email) {
     if (email.match(/[a-zA-z0-9._-]+@[a-z]+\.[a-z]+/)) {
     return true;
@@ -14,7 +14,7 @@ function verifierMail (email) {
     };
 };
 
-
+//puis connexion vers la page admin avec les messages erreurs
 connexion.addEventListener("click",() => {
     if (!verifierMail(email.value)) {
         const errorMail = document.querySelector(".mail-error")
@@ -34,7 +34,7 @@ connexion.addEventListener("click",() => {
             
                 if (data.token) {
                 localStorage.setItem('token', data.token)
-                window.location.href = "/frontend/admin.html"
+                window.location.href = "admin.html";
                 } else {
                     alert("Votre email ou votre mot de passe est incorect !")
                 }
