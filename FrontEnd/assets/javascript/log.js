@@ -36,7 +36,7 @@ connexion.addEventListener("click",() => {
                 localStorage.setItem('token', data.token)
                 window.location.href = "admin.html";
                 } else {
-                    alert("Votre email ou votre mot de passe est incorect !")
+                    alert("Votre email ou votre mot de passe est incorrect !")
                 }
             })
     };
