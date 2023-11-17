@@ -63,7 +63,7 @@ close2.addEventListener("click", () => {
     popup2.classList.add("hidden");
 });
 
-//Fermeture des modales quand on clique ailleurs 
+//Fermeture des popup quand on clique ailleurs 
 const body = document.querySelector(".body");
 console.log(body);
 body.click(function (event) 
@@ -73,17 +73,6 @@ body.click(function (event)
    }     
 });
 
-//Fonction pour supprimer les images de la popup2
-function supprImg (id) {
-    fetch ("http://localhost:5678/api/works/" + id, {
-        method: "DELETE",
-        headers: { Authorization: "Bearer " + localStorage.getItem("token")},
-    }) .then (res => res.json)
-        .then ((res) => {
-            genererGalerie()
-            genererProjets()
-        });
-};
 
 //Fonction pour générer les images depuis l'api sur la popup2
 async function genererGalerie () {
@@ -114,7 +103,21 @@ async function genererGalerie () {
 };
 genererGalerie();
 
-//fonction pour générer les catégories d'ajoiut de la popup1 via l'API
+
+//Fonction pour supprimer les images de la popup2
+function supprImg (id) {
+    const reponse = fetch ("http://localhost:5678/api/works/" + id, {
+        method: "DELETE",
+        headers: { Authorization: "Bearer " + localStorage.getItem("token")},
+    }) .then (res => res.json)
+        .then ((res) => {
+            genererGalerie()
+            genererProjets()
+        });
+};
+
+
+//fonction pour générer les catégories d'ajout de la popup1 via l'API
 async function genererCategories () {
     const request  = await fetch("http://localhost:5678/api/categories");
     const data = await request.json();
@@ -129,7 +132,7 @@ async function genererCategories () {
 genererCategories();
 
 
-//changer l'image de base par l'image choisie lors de l'ajout de projet
+//popup1, changer l'image de base par l'image choisie lors de l'ajout de projet
 const bouton3 = document.getElementById("ajouter");
 const image = document.getElementById("placeholder")
 const here = document.getElementById("here");
@@ -152,7 +155,7 @@ champ2.addEventListener("change",verifierChamps);
 
 champ3.addEventListener("change",verifierChamps);
 
-// fonction pour verifier si champ remplie
+// fonction pour verifier si champ remplie afin d'ajouter la classe css sur boutton d'envoi
 function verifierChamps () {
     console.log(bouton3.value);
     console.log(champ2.value);
@@ -163,14 +166,14 @@ function verifierChamps () {
 }
 verifierChamps()
 
-//Fonction ajout photo popup1
+//Fonction ajout pprojet popup1
 async function ajouterProjet (event) {
     event.preventDefault();
 
     const image = document.getElementById("ajouter");
     const titre = document.getElementById("titre");
     const categorie = document.getElementById("categorie");
-
+    
     const formData = new FormData();
     formData.append("title", titre.value);
     formData.append("category", categorie.value);
@@ -184,7 +187,10 @@ async function ajouterProjet (event) {
     });
 
     if(response.status === 201) {
-        alert("Félicitation, votre projet à été correctement ajouter !")
+        popup1.classList.add("hidden");
+        alert("Félicitation, votre projet à été correctement ajouter !");
+        genererProjets();
+        genererGalerie();
         return;
     } else {
         alert("Veuillez remplir tous les champs !")
@@ -209,6 +215,6 @@ const logout = document.getElementById("logout");
 logout.addEventListener("click", () => {
     if (localStorage.getItem("token")) {
         localStorage.removeItem("token");
-        window.location.href = "/frontend/login.html";
+        window.location.href = "login.html";
     };
 });
