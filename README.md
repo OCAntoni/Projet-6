@@ -4,8 +4,8 @@
 
 <h2>Apercu du projet</h2>
 
-<img src="./assets/images/p6_github.png">
-<img src="./assets/images/p6_github_2.png">
+<img src="assets/images/p6_github.png">
+<img src="assets/images/p6_github_2.png">
 
 <h2>Technos. utilisées</h2>
 
