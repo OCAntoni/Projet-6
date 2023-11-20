@@ -48,7 +48,7 @@ close1.addEventListener("click",() => {
     popup1.classList.add("hidden");
 });
 
-//Pour la popup2 popup mofication
+//Pour la popup2 popup modfier
 lien2.addEventListener("click", () => {
     popup2.classList.remove("hidden");
     popup1.classList.add("hidden");
@@ -65,14 +65,18 @@ close2.addEventListener("click", () => {
 
 //Fermeture des popup quand on clique ailleurs 
 const body = document.querySelector(".body");
-console.log(body);
-body.click(function (event) 
-{
-   if(!$(event.target).closest('#popup-ajout').length && !$(event.target).is('#popup-ajout')) {
-   popup1.classList.add("hidden")
-   }     
+
+body.addEventListener("click",(e) => {
+    if(e.target != lien && popup1) {
+        popup1.classList.add("hidden")
+    };
 });
 
+body.addEventListener("click",(e) => {
+    if(e.target != lien2) {
+        popup2.classList.add("hidden")
+    };
+});
 
 //Fonction pour générer les images depuis l'api sur la popup2
 async function genererGalerie () {
