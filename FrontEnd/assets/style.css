@@ -34,6 +34,9 @@ body {
 	display: flex;
 	flex-direction: column;
 }
+.body {
+	margin-top: 0px;
+}
 footer {
 	margin-top: auto;
 }
@@ -396,6 +399,10 @@ li:hover {
 	color: white;
 	font-size: 16px;
 	text-decoration: none;
+}
+
+#logout {
+	cursor: pointer;
 }
 
 /* Filtres page user */
