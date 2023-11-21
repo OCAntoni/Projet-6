@@ -33,6 +33,15 @@ const redirectionPrecedent = document.querySelector(".retour")
 const close1 = document.querySelector(".echap-ajout");
 const close2 = document.querySelector(".echap");
 
+//annulation des autres evenement au click par defaut
+popup1.addEventListener("click",(e) => {
+    e.stopPropagation();
+});
+
+popup2.addEventListener("click",(e) => {
+    e.stopPropagation();
+});
+
 //Pour la popup1 popup ajout
 lien.addEventListener("click",() => {
     popup1.classList.remove("hidden");
@@ -64,22 +73,15 @@ close2.addEventListener("click", () => {
 });
 
 //Fermeture des popup quand on clique ailleurs 
-const body = document.querySelector(".body");
-const form = document.getElementById("submit");
-const popupForm = document.querySelector(".popup-form");
-console.log(form);
-console.log(popupForm);
-
-body.addEventListener("click",(e) => {
-    if(e.target == form) {
-        popup1.classList.add("hidden")
-        console.log(e.target);
-    }
+document.addEventListener("click", (e) => {
+    if (!popup1.classList.contains("hidden") && e.target != lien) {
+        popup1.classList.add("hidden");
+    };
 });
 
-body.addEventListener("click",(e) => {
-    if(e.target != lien2) {
-        popup2.classList.add("hidden")
+document.addEventListener("click", (e) => {
+    if (!popup2.classList.contains("hidden") && e.target != lien2) {
+        popup2.classList.add("hidden");
     };
 });
 
@@ -143,13 +145,12 @@ genererCategories();
 
 //popup1, changer l'image de base par l'image choisie lors de l'ajout de projet
 const bouton3 = document.getElementById("ajouter");
-const image = document.getElementById("placeholder")
-const here = document.getElementById("here");
-const supr = document.getElementById("supr")
-const supr2 = document.getElementById("supr2")
-const champ2 = document.getElementById("titre")
-const champ3 = document.getElementById("categorie")
-const btnAjout = document.querySelector(".btn-ajout")
+const image = document.getElementById("placeholder");
+const champ2 = document.getElementById("titre");
+const champ3 = document.getElementById("categorie");
+const btnAjout = document.querySelector(".btn-ajout");
+const supr = document.getElementById("supr");
+const supr2 =document.getElementById("supr2");
 
 bouton3.addEventListener("change",(event) => {
     verifierChamps()
@@ -169,13 +170,13 @@ function verifierChamps () {
     console.log(bouton3.value);
     console.log(champ2.value);
     console.log(champ3.value);
-    if (bouton3.value != "" && champ2.value != "" && champ3 != "") {
+    if (bouton3.value != "" && champ2.value != "" && champ3.value != "") {
         btnAjout.classList.add("active")
-    }
-}
-verifierChamps()
+    };
+};
+verifierChamps();
 
-//Fonction ajout pprojet popup1
+//Fonction ajout projet popup1
 async function ajouterProjet (event) {
     event.preventDefault();
 
@@ -210,7 +211,7 @@ async function ajouterProjet (event) {
     };
 };
 
-//Ajout photo popup1
+//supprimer le rechargement de la page lors de l'ajout de nouveau projet
 const submit = document.getElementById("submit");
 
 submit.addEventListener("submit",(event) => {
