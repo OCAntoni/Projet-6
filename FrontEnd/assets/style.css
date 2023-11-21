@@ -597,3 +597,7 @@ h2 {
 	width: 129px;
 	height: 169px;
 }
+
+.change-color {
+	color: red;
+}
