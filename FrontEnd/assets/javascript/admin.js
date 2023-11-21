@@ -65,11 +65,16 @@ close2.addEventListener("click", () => {
 
 //Fermeture des popup quand on clique ailleurs 
 const body = document.querySelector(".body");
+const form = document.getElementById("submit");
+const popupForm = document.querySelector(".popup-form");
+console.log(form);
+console.log(popupForm);
 
 body.addEventListener("click",(e) => {
-    if(e.target != lien && popup1) {
+    if(e.target == form) {
         popup1.classList.add("hidden")
-    };
+        console.log(e.target);
+    }
 });
 
 body.addEventListener("click",(e) => {
