@@ -5,7 +5,3 @@
 <h2>Technos. utilisées</h2>
 
 HTML / CSS / JAVASCRIPT
-
-<h2>Liens</h2>
-
-Vous pouvez retrouver le lien de la version finale --> <a href="#"> ici</a>
