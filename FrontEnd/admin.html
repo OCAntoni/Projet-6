@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="fr" class="body">
+<html lang="fr">
 <head>
 	<meta charset="UTF-8">
 	<title>Sophie Bluel - Architecte d'intérieur</title>
@@ -20,14 +20,14 @@
 			<i class="fa-solid fa-xmark echap-ajout"></i>
 			<form id="submit" class="popup-form">
 				<h3>Ajout photo</h3>
-				<label for="ajouter" class="photo-ajout">
+				<div class="photo-ajout">
 					<img src="./assets/icons/picture-svgrepo-com1.svg" id="placeholder" alt="icone d'image">
-						<div id="supr" class ="button">
+						<label for="ajouter" id="supr" class ="button">
 							<i class="fa-solid fa-plus plus"></i>Ajouter une photo
-						</div>
+						</label>
 						<input type="file" name="ajouter" id="ajouter">
 					<p id="supr2" class="text">jpg, png : 4mo max</p>
-				</label>
+				</div>
 				<div class="description-ajout">
 						<label for="titre">Titre</label>
 						<input type="text" name="titre" id="titre">

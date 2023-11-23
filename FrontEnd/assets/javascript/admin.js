@@ -172,7 +172,9 @@ function verifierChamps () {
     console.log(champ3.value);
     if (bouton3.value != "" && champ2.value != "" && champ3.value != "") {
         btnAjout.classList.add("active")
-    };
+    } else {
+        btnAjout.classList.remove("active")
+    }
 };
 verifierChamps();
 
@@ -180,14 +182,14 @@ verifierChamps();
 async function ajouterProjet (event) {
     event.preventDefault();
 
-    const image = document.getElementById("ajouter");
+    const imageInput = document.getElementById("ajouter");
     const titre = document.getElementById("titre");
     const categorie = document.getElementById("categorie");
     
     const formData = new FormData();
     formData.append("title", titre.value);
     formData.append("category", categorie.value);
-    formData.append("image", image.files[0]);
+    formData.append("image", imageInput.files[0]);
 
     try {
         const response = await fetch ("http://localhost:5678/api/works", {
@@ -201,7 +203,13 @@ async function ajouterProjet (event) {
         alert("Félicitations, votre projet à été correctement ajouté !");
         genererProjets();
         genererGalerie();
-        return;
+        titre.value="";
+        categorie.value="";
+        image.src = "./assets/icons/picture-svgrepo-com1.svg";
+        image.style.removeProperty("height");
+        image.style.removeProperty("width");
+        supr.classList.remove("hidden");
+        supr2.classList.remove("hidden");
     } else {
         alert("Veuillez remplir tous les champs !")
     };
